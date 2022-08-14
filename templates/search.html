@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block metadescription %}
+
+        welome to My Shop Store where you can buys different items...
+
+{% endblock %}
+{% block title %}
+    Search
+{% endblock %}
+{% block content %}
+
+    <div>
+        <p class="text-center search_my"><b>You have searched for:</b>"{{query}}"</p>
+    </div>
+<div class="container">
+    <div class="row mx_auto">
+                {% for product in products %}
+                <div class="card_margin col-9  col-sm-12 col-md-4 xol-lg-4">
+                    <div class="card h-100 text-center" style="min-width:12rem;">
+                            <a href="{{product.get_url}}"><img class="card-img-top" src="{{product.image.url}}" alt="{{product.name}}"></a>
+                        <div class="card-body">
+                            <h4>{{product.name}}</h4>
+                            <p>${{product.price}}</p>
+                        </div>
+                    </div>
+                </div>
+        {% empty %}
+        <div class="row mx-auto">
+            <p>0 Results Found.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

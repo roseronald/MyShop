@@ -1,0 +1,82 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block metadescription %}
+    {% if category %}
+        {{category.description|truncatewords:155}}
+    {% else %}
+        welome to My Shop Store where you can buys different items...
+    {% endif %}
+{% endblock %}
+{% block title %}
+    {% if category %}
+        {{category.name}}--MyShop store
+    {% else %}
+        See our new collection-MyShop Store
+    {% endif %}
+{% endblock %}
+{% block content %}
+    {% if category %}
+       <div class="conatiner">
+           <div class="row">
+               <div class="col-md-12">
+                   <p><a href="{% url 'shop:allProdCat'%}" class="custom_text">Our collections are</a></p>
+               </div>
+            </div>
+    {% endif %}
+            <div class="row d-flex justify-content-center">
+            {% if category %}
+                <div>
+                     <div class="col-md-12  d-flex justify-content-center">
+                         <div class="card shadow mb-3" width="100">
+                           <div class="card text-success text-success">
+                                <div class="card-body">
+                                     <h2 class="text-center">{{category}}</h2>
+                                    <img src="{{category.image.url}}" alt="{{category.name}}"class=".text-center" width="400",height="400">
+
+                                </div>
+                            </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+       </div>
+    {% else%}
+<div>
+    <img class="img-thumbnail" src="{% static 'img/banner.jpg' %}" alt="our products" width="1290px" >
+</div>
+<br>
+<div>
+    <h1 class="text-center"><b>Our Products Collection</b></h1>
+    <figure class="text-center para_style">
+            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+    </figure>
+</div>
+{% endif %}
+<div class="container">
+    <div class="row mx_auto">
+                {% for product in products.object_list %}
+                <div class="card_margin col-9  col-sm-12 col-md-4 xol-lg-4">
+                    <div class="card h-70 text-center" style="min-width:12rem;">
+                            <a href="{{product.get_url}}"><img class="card-img-top" src="{{product.image.url}}" alt="{{product.name}}"></a>
+                        <div class="card-body">
+                            <h4>{{product.name}}</h4>
+                            <p>${{product.price}}</p>
+                        </div>
+                    </div><br>
+
+                </div>
+                {% endfor %}
+    </div>
+    <div class="mx-auto">
+        {% if products.paginator.num_pages > 1 %}
+        <hr>
+        <div class="text-center">
+            {% for pg in products.paginator.page_range %}
+                <a href="?page={{pg}}" class="btn btn-light btn-sm {% if products.number == pg %} active {% endif %}">{{pg}}</a>
+            {% endfor%}
+        </div>
+        {% endif %}
+    </div>
+    <br>
+</div>
+{% endblock %}

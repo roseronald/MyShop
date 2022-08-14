@@ -1,0 +1,73 @@
+.nav-item{
+    letter-spacing:.01em;
+    font size:12px;
+    color:red;
+    font-family: 'Roboto', sans-serif;
+        }
+.nav-item a{
+     color:red;
+     text-decoration-thickness: 25%;
+}
+.dropdown-item{
+    letter-spacing:.1em;
+    font size:12px;
+    text-transform:uppercase;
+     }
+
+.para_style{
+        font-size:16px;
+        font-family: 'Roboto', sans-serif;
+}
+.card_margin{
+            margin-bottom:20px;
+        }
+.card body h4{
+    font-size:14px;
+    text-transform:uppercase;
+    }
+ .btn_ctr{
+    text-align:center;
+ }
+.custom_footer{
+   color: white;
+   text-align: center;
+
+}
+ .search_my{
+    padding-top:20px;
+ }
+
+ .my_table{
+    min-width:488px;
+    font-size:14px;
+ }
+ .my_thead{
+    font-weight:normal;
+    font-transform:uppercase;
+    letter-spacing:2em;
+    background-color:#f8f8fa!important;
+ }
+ .custom_a{
+    text-decoration:none;
+ }
+ .custom_icon{
+    text-decoration:none;
+    color:red;
+ }
+  .custom_btn{
+    margin-top:5px;
+    background-color:red;
+    font-family: 'Roboto', sans-serif;
+ }
+ .custom_img{
+    width:100px;
+    height:100px;
+ }
+ .custom_text{
+    font-family: 'Roboto', sans-serif;
+ }
+   .custom_btn1{
+    margin-top:5px;
+    font-family: 'Roboto', sans-serif;
+    align-item:right;
+ }
